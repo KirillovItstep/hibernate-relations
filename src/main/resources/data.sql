@@ -1,24 +1,39 @@
-delete from passport;
 delete from person;
+delete from passport;
 
-insert into person (id,first_name, last_name) values(1,'Ivan', 'Ivanov');
-insert into person (id,first_name, last_name) values(2,'John', 'Smith');
+insert into person (first_name, last_name) values('Ivan', 'Ivanov');
+insert into person (first_name, last_name) values('John', 'Smith');
 
-insert into passport (id,number,country) values(1,'DB2351345', 'BY');
-insert into passport (id,number,country) values(2,'DB1233346', 'BY');
+insert into passport (number,country,person_id) values('DB2351345', 'BY',1);
+insert into passport (number,country,person_id) values('DB1233346', 'BY',2);
 
 delete from comment;
 delete from post;
 
-insert into post (id,content) values(1,'Post 1');
-insert into post (id,content) values(2,'Post 2');
+insert into post (content) values('Post 1');
+insert into post (content) values('Post 2');
 
-insert into comment(id,content) values(1,'Comment 1');
-insert into comment(id,content) values(2,'Comment 2');
-UPDATE comment SET post_id = 1 WHERE comment.id=1;
-UPDATE comment SET post_id = 2 WHERE comment.id=2;
+insert into comment(content) values('Comment 1');
+insert into comment(content) values('Comment 2');
 
+UPDATE comment SET post_id = 1 WHERE id=1;
+UPDATE comment SET post_id = 1 WHERE id=2;
 
+delete from address;
+delete from employee;
 
+insert into address (city, street) values('Vitebsk', 'Moskowsky st.');
+insert into address (city, street) values('Minsk', 'Pobedy st.');
 
+insert into employee (first_name, last_name, address_id) values('John', 'Doe', 1);
+insert into employee (first_name, last_name, address_id) values('Jane', 'Deer',2);
+
+delete from phone;
+delete from subscriber;
+
+insert into subscriber (first_name, last_name) values ('John', 'Doe');
+insert into subscriber (first_name, last_name) values ('Jane', 'Deer');
+
+insert into phone(number, subscriber_id) values ('111', 1);
+insert into phone(number, subscriber_id) values ('222', 1);
 

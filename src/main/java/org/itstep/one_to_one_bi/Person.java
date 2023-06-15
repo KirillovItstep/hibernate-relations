@@ -1,4 +1,4 @@
-package org.itstep.one_to_one_uni;
+package org.itstep.one_to_one_bi;
 
 import lombok.Data;
 
@@ -18,4 +18,14 @@ public class Person {
 
     @OneToOne(mappedBy="person")
     private Passport passport;
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", number=" + passport.getNumber() +
+                '}';
+    }
 }

@@ -19,5 +19,11 @@ public class Comment {
     @JoinColumn(name="post_id")
     private Post post;
 
-
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "id=" + id +
+                ", content='" + content + '\'' +
+                '}';
+    }
 }
