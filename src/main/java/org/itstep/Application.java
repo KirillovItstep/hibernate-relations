@@ -1,5 +1,8 @@
 package org.itstep;
 
+import org.itstep.many_to_many_uni.Author;
+import org.itstep.many_to_many_uni.AuthorRepository;
+import org.itstep.many_to_many_uni.BookRepository;
 import org.itstep.many_to_one_bi.Comment;
 import org.itstep.many_to_one_bi.CommentRepository;
 import org.itstep.many_to_one_bi.Post;
@@ -29,6 +32,12 @@ public class Application implements CommandLineRunner {
 
     @Autowired
     private EmployeeRepository employeeRepository;
+
+    @Autowired
+    private AuthorRepository authorRepository;
+
+    @Autowired
+    private BookRepository bookRepository;
 
 
     public static void main(String[] args) {
@@ -72,11 +81,20 @@ public class Application implements CommandLineRunner {
                 p -> System.out.println(p));
                 */
 
+        /*
         employeeRepository.findAll().stream().forEach(
                 e -> System.out.println(e));
+         */
 
+        Author author = authorRepository.findById(1L).orElse(null);
+        author.getBooks().remove(bookRepository.findById(1L).orElse(null));
+
+        authorRepository.findAll().stream().forEach(
+                a -> System.out.println(a));
+
+        bookRepository.findAll().stream().forEach(
+                b -> System.out.println(b));
     }
-
 }
 
 /*

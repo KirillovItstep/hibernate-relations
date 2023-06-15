@@ -402,3 +402,7 @@ UPDATE post SET comment_id = 1 WHERE post.id=1 [42122-212]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
 	at org.itstep.Application.main(Application.java:23)
+2023-06-15 21:05:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "BOOK_AUTHORS" не найдена
+Table "BOOK_AUTHORS" not found; SQL statement:
+insert into book_authors(author_id, book_id) values (1, 1) [42102-212]

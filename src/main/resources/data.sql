@@ -37,3 +37,17 @@ insert into subscriber (first_name, last_name) values ('Jane', 'Deer');
 insert into phone(number, subscriber_id) values ('111', 1);
 insert into phone(number, subscriber_id) values ('222', 1);
 
+delete from book;
+delete from author;
+
+insert into author (name) values ('Stephen King');
+insert into author (name) values ('Mark Twain');
+insert into author (name) values ('Marcel Proust');
+
+insert into book(title) values ('11/22/63: A Novel');
+insert into book(title) values ('Doctor Sleep: A Novel');
+insert into book(title) values ('In Search of Lost Time');
+
+insert into author_books(author_id, book_id) values (1, 1);
+insert into author_books(author_id, book_id) values (1, 2);
+insert into author_books(author_id, book_id) values (2, 2);
