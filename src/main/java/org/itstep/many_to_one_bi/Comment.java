@@ -1,13 +1,13 @@
-package org.itstep.one_to_many_uni;
+package org.itstep.many_to_one_bi;
 
 import lombok.Data;
+
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Data
-@Table(name = "post")
-public class Post {
+@Table(name = "comment")
+public class Comment {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,6 +15,9 @@ public class Post {
 
     private String content;
 
-    @OneToMany(mappedBy="post", cascade = CascadeType.ALL)
-    private List<Comment> comments;
+    @ManyToOne
+    @JoinColumn(name="post_id")
+    private Post post;
+
+
 }
